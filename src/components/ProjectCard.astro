@@ -1,0 +1,239 @@
+---
+import type { Project } from '../data/projects';
+
+interface Props extends Project {
+  index: number;
+}
+
+const { title, description, tech, index, image, liveUrl, codeUrl, caseStudyUrl } = Astro.props;
+---
+
+<div class="project-card" data-index={index}>
+  <!-- Media Section -->
+  <div class="project-media">
+    <div class="media-container">
+      {image ? (
+        <img src={image} alt={`${title} screenshot`} />
+      ) : (
+        <div class="placeholder-media">
+          <div class="media-icon">🎬</div>
+          <p>Project Preview</p>
+        </div>
+      )}
+    </div>
+  </div>
+
+  <!-- Content Section -->
+  <div class="project-info">
+    <h3>{title}</h3>
+    <p class="project-description">{description}</p>
+
+    <div class="tech-stack">
+      {tech.slice(0, 3).map((techItem) => (
+        <span class="tech-tag">{techItem}</span>
+      ))}
+    </div>
+
+    <div class="project-actions">
+      {liveUrl && <a href={liveUrl} target="_blank" rel="noopener noreferrer" class="project-btn live">Live</a>}
+      {codeUrl && <a href={codeUrl} target="_blank" rel="noopener noreferrer" class="project-btn code">Code</a>}
+      {caseStudyUrl && <a href={caseStudyUrl} target="_blank" rel="noopener noreferrer" class="project-btn case-study">Case Study</a>}
+    </div>
+  </div>
+</div>
+
+<style>
+  .project-card {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: auto;
+    height: 99%;
+    background: var(--white-alpha);
+    border: 2px solid var(--primary-color);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px var(--primary-alpha);
+    opacity: 0;
+    transition: all 0.3s ease;
+    display: flex;
+    overflow: hidden;
+  }
+
+  /* Media Section - Takes full height */
+  .project-media {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .project-media .media-container {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .project-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+  }
+
+  .project-media:hover img {
+    transform: scale(1.02);
+  }
+
+  .placeholder-media {
+    text-align: center;
+    color: var(--secondary-color);
+    background: var(--white-light);
+    border-radius: 8px;
+    padding: var(--spacing-lg);
+    width: 80%;
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .media-icon {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+  }
+
+  .placeholder-media p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--text-color);
+  }
+
+  /* Content Section - Smaller right side */
+  .project-info {
+    flex: 1;
+    padding: var(--spacing-sm);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+
+  .project-info h3 {
+    font-size: 1.3rem;
+    margin: 0;
+    color: var(--primary-color);
+    font-weight: 600;
+    line-height: 1.2;
+  }
+
+  .project-description {
+    font-size: 0.9rem;
+    line-height: 1.3;
+    margin: 0;
+    color: var(--text-color);
+    opacity: 0.9;
+  }
+
+  /* Tech Stack Tags */
+  .tech-stack {
+    display: flex;
+    gap: var(--spacing-xs);
+    flex-wrap: wrap;
+  }
+
+  .tech-tag {
+    background: var(--primary-alpha);
+    color: var(--primary-color);
+    padding: 4px 10px;
+    border-radius: 16px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    border: 1px solid var(--primary-color);
+    white-space: nowrap;
+  }
+
+  /* Project Actions */
+  .project-actions {
+    display: flex;
+    gap: var(--spacing-xs);
+    margin-top: auto;
+    position: relative;
+    z-index: 10;
+  }
+
+  .project-btn {
+    padding: 8px 16px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.85rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 2px solid;
+    display: inline-block;
+    text-align: center;
+    position: relative;
+    z-index: 11;
+    pointer-events: auto;
+    letter-spacing: 0.025em;
+    cursor: pointer;
+    user-select: none;
+    min-width: 70px;
+  }
+
+  .project-btn.live {
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-hover));
+    color: var(--white);
+    border-color: var(--primary-color);
+    box-shadow: 0 2px 8px var(--primary-alpha);
+  }
+
+  .project-btn.live:hover {
+    background: linear-gradient(135deg, var(--primary-hover), var(--primary-color));
+    box-shadow: 0 4px 16px rgba(59, 130, 246, 0.4);
+    border-color: var(--primary-hover);
+  }
+
+  .project-btn.code {
+    background: linear-gradient(135deg, #24292e, #2d3748);
+    color: var(--white);
+    border-color: #24292e;
+    box-shadow: 0 2px 8px rgba(36, 41, 46, 0.3);
+  }
+
+  .project-btn.code:hover {
+    background: linear-gradient(135deg, #2d3748, #24292e);
+    box-shadow: 0 4px 16px rgba(36, 41, 46, 0.5);
+    border-color: #2d3748;
+  }
+
+  .project-btn.case-study {
+    background: linear-gradient(135deg, var(--accent-color), #1a365d);
+    color: var(--white);
+    border-color: var(--accent-color);
+    box-shadow: 0 2px 8px rgba(9, 51, 148, 0.3);
+  }
+
+  .project-btn.case-study:hover {
+    background: linear-gradient(135deg, #1a365d, var(--accent-color));
+    box-shadow: 0 4px 16px rgba(9, 51, 148, 0.5);
+    border-color: #1a365d;
+  }
+</style>
+
+<script>
+  // Handle button clicks to prevent interference with hover detection
+  document.addEventListener('DOMContentLoaded', () => {
+    const buttons = document.querySelectorAll('.project-btn');
+    buttons.forEach(button => {
+      button.addEventListener('click', (e) => {
+        // Only stop propagation, don't prevent default link behavior
+        e.stopPropagation();
+        // Don't use stopImmediatePropagation as it blocks the link navigation
+      });
+    });
+  });
+</script>

@@ -1,0 +1,67 @@
+/* CSS Custom Properties */
+:root {
+  --primary-color: #2774c1;
+  --primary-hover: #4d94ff;
+  --secondary-color:  #45698d; 
+  --text-color: #000000;
+  --bg-color: #e8f4f8; 
+  --accent-color: #093394; 
+
+  /* Core colors */
+  --white: #ffffff;
+  --black: #000000;
+
+  /* Essential transparencies */
+  --white-alpha: rgba(255, 255, 255, 0.8);
+  --white-light: rgba(255, 255, 255, 0.5);
+  --primary-alpha: rgba(59, 130, 246, 0.2);
+  --shadow-light: rgba(0, 0, 0, 0.1);
+
+  --font-primary: 'Inter', sans-serif;
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3rem;
+}
+
+/* Base Styles */
+html,
+body {
+  margin: 0;
+  width: 100%;
+  min-height: 100%;
+}
+
+body {
+  font-family: var(--font-primary);
+  color: var(--text-color);
+  background: var(--bg-color);
+  line-height: 1.6;
+  background: linear-gradient(130deg, var(--bg-color) 0%, color-mix(in srgb, var(--accent-color) 30%, transparent) 100%);
+  background-attachment: fixed;
+}
+
+/* Typography */
+h1 {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin-bottom: var(--spacing-md);
+}
+
+h2 {
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin-bottom: var(--spacing-lg);
+}
+
+h3 {
+  font-size: 1.5rem;
+  color: var(--secondary-color);
+  margin-bottom: var(--spacing-md);
+}
+
+p {
+  font-size: 1.1rem;
+  margin-bottom: var(--spacing-sm);
+}

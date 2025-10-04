@@ -1,0 +1,72 @@
+---
+---
+
+<footer id="contact">
+	<div class="footer-content">
+		<h3>Let's Connect</h3>
+		<div class="social-links">
+			<a href="https://github.com/DatWiski" target="_blank">GitHub</a>
+			<a href="https://www.linkedin.com/in/marcel-kilian-14a6a5309" target="_blank">LinkedIn</a>
+			<a href="mailto:marcel@example.com">Email</a>
+		</div>
+		<p>&copy; 2025 Marcel.</p>
+	</div>
+</footer>
+
+<style>
+  footer {
+	background: var(--secondary-color);
+	color: white;
+	margin-top: auto;
+	padding: var(--spacing-xl) 0;
+  }
+
+  .footer-content {
+	max-width: 1200px;
+	margin: 0 auto;
+	text-align: center;
+	padding: 0 var(--spacing-lg);
+  }
+
+  .footer-content h3 {
+	color: white;
+	margin-bottom: var(--spacing-lg);
+	font-size: 1.8rem;
+  }
+
+  .social-links {
+	display: flex;
+	justify-content: center;
+	gap: var(--spacing-lg);
+	margin-bottom: var(--spacing-lg);
+  }
+
+  .social-links a {
+	color: var(--white-alpha);
+	text-decoration: none;
+	font-weight: 500;
+	padding: 12px 24px;
+	border: 2px solid var(--white-light);
+	border-radius: 8px;
+	transition: all 0.3s ease;
+  }
+
+  .social-links a:hover {
+	color: var(--primary-color);
+	border-color: var(--primary-color);
+	transform: translateY(-2px);
+  }
+
+  .footer-content p {
+	color: var(--white-alpha);
+	margin: 0;
+	font-size: 0.9rem;
+  }
+
+  @media (max-width: 768px) {
+    .social-links {
+      flex-direction: column;
+      gap: var(--spacing-md);
+    }
+  }
+</style>
