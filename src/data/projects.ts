@@ -11,14 +11,16 @@ export interface Project {
 export const projects: Project[] = [
   {
     title: "BudgetTracker",
-    description: "Personal finance management platform with subscription tracking",
+    description: "Full-stack personal finance app with secure Google OAuth2 login, JWT sessions, and analytics dashboard.",
     tech: ["Spring Boot", "React", "PostgreSQL"],
     image: "/src/assets/images/budgettracker-dashboard.png",
     codeUrl: "https://github.com/DatWiski/BudgetTracker",
   },
   {
     title: "Portfolio Website",
-    description: "Modern portfolio built with Astro and interactive components",
+    description: "Portfolio built with Astro",
     tech: ["Astro", "TypeScript", "CSS"],
+    image: "/src/assets/images/portfolioWebsite.png",
+    codeUrl: "https://github.com/DatWiski/portfolio",
   },
 ];

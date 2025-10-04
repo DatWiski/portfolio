@@ -62,9 +62,11 @@ const { title, description, tech, index, image, liveUrl, codeUrl, caseStudyUrl }
 
   /* Media Section - Takes full height */
   .project-media {
+    flex: 4;
     display: flex;
     align-items: center;
     justify-content: center;
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
   }
 
   .project-media .media-container {
@@ -74,6 +76,7 @@ const { title, description, tech, index, image, liveUrl, codeUrl, caseStudyUrl }
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: var(--spacing-md);
   }
 
   .project-media img {
@@ -81,6 +84,7 @@ const { title, description, tech, index, image, liveUrl, codeUrl, caseStudyUrl }
     height: 100%;
     object-fit: contain;
     transition: transform 0.3s ease;
+    border-radius: 8px;
   }
 
   .project-media:hover img {
@@ -115,24 +119,25 @@ const { title, description, tech, index, image, liveUrl, codeUrl, caseStudyUrl }
 
   /* Content Section - Smaller right side */
   .project-info {
-    flex: 1;
-    padding: var(--spacing-sm);
+    flex: 1.3;
+    padding: var(--spacing-lg);
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-sm);
+    gap: var(--spacing-md);
+    justify-content: center;
   }
 
   .project-info h3 {
-    font-size: 1.3rem;
+    font-size: 1.8rem;
     margin: 0;
     color: var(--primary-color);
     font-weight: 600;
-    line-height: 1.2;
+    line-height: 1.3;
   }
 
   .project-description {
-    font-size: 0.9rem;
-    line-height: 1.3;
+    font-size: 1.1rem;
+    line-height: 1.6;
     margin: 0;
     color: var(--text-color);
     opacity: 0.9;
@@ -148,9 +153,9 @@ const { title, description, tech, index, image, liveUrl, codeUrl, caseStudyUrl }
   .tech-tag {
     background: var(--primary-alpha);
     color: var(--primary-color);
-    padding: 4px 10px;
-    border-radius: 16px;
-    font-size: 0.75rem;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.95rem;
     font-weight: 500;
     border: 1px solid var(--primary-color);
     white-space: nowrap;
